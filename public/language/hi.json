@@ -1,0 +1,21 @@
+{
+  "app_title": "गैरेज हीरो",
+  "language": "भाषा",
+  "welcome_message": "स्वागत हे {{name}}",
+  "Page_not_found": "पृष्ठ नहीं मिल रहा",
+  "page_not_exist": "आप जिस पेज की तलाश कर रहे हैं वह मौजूद नहीं है।",
+  "sorry": "ओह!",
+  "go_home": "घर जाओ",
+
+
+  "Dashboard": "Dashboard",
+  "Finance_Accounting": "Finance & Accounting",
+  "HR_Management": "HR Management",
+  "Operation_Management": "Operation management",
+  "Marketing_Communication": "Marketing & Communication",
+  "Business_Intelligence": "Business Intelligence",
+  "Chat_With_Us": "Chat with us",
+
+  "Log_Out": "Log Out"
+
+}

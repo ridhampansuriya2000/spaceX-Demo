@@ -1,0 +1,21 @@
+{
+  "app_title": "SpaceX",
+  "language": "Language",
+  "welcome_message": "Welcome {{name}}",
+  "Page_not_found": "Page not found.",
+  "page_not_exist": "The page you’re looking for doesn’t exist.",
+  "sorry": "Opps!",
+  "go_home": "Go Home",
+
+
+  "Dashboard": "Dashboard",
+  "Finance_Accounting": "Finance & Accounting",
+  "HR_Management": "HR Management",
+  "Operation_Management": "Operation management",
+  "Marketing_Communication": "Marketing & Communication",
+  "Business_Intelligence": "Business Intelligence",
+  "Chat_With_Us": "Chat with us",
+
+  "Log_Out": "Log Out"
+
+}
