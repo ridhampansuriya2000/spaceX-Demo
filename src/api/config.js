@@ -1,10 +1,3 @@
-const BASE_URL = process.env.REACT_APP_SERVICE_URL;
+// const BASE_URL = process.env.REACT_APP_SERVICE_URL ||;
+const BASE_URL = 'https://api.spacexdata.com/v3/';
 
-export const API_URL = {
-  auth: {
-    login: `${BASE_URL}/api/auth/login`,
-    logout: `${BASE_URL}/api/auth/logout`,
-    tokenUser: `${BASE_URL}/api/auth/getUserByToken`,
-  },
-  
-};

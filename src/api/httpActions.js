@@ -20,10 +20,11 @@ const httpActions = (e) => next => async action => {
         headers,
         type,
         body,
+        accessAndContentHeaders=true,
     } = action;
     const authKey = localStorage.getItem("token");
 
-    if (isHttpAction) {
+    if (isHttpAction) {debugger
 
         await next({
             type: `${LOADER_START}`,
@@ -36,17 +37,18 @@ const httpActions = (e) => next => async action => {
             type: `${type}_FETCHING`,
             payload: {},
         });
-        const baseURL = BASE_URL;
-        const accessAndContentHeader = {
+        const baseURL = 'https://api.spacexdata.com/v3/';
+        const accessAndContentHeader = accessAndContentHeaders ? {
             'Access-Control-Allow-Origin': '*',
-            'Content-type': 'application/json',
+            'Content-type': 'application/json; charset=utf-8',
             'Access-Control-Allow-Methods': 'POST, GET',
-        };
+            'Access-Control-Request-Headers': 'X-PINGOTHER; Content-Type',
+        } : {};
         try {
             const response = await axios({
                 url,
                 headers: {
-                    Authorization: authKey || '',
+                    // Authorization: authKey || '',
                     ...accessAndContentHeader,
                     ...headers,
                 },
