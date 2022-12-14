@@ -8,7 +8,7 @@ const data = {
 
 const dashboardReducer = (state = JSON.parse(JSON.stringify(data)), {type, payload}) => {
   switch (type) {
-    case `${GET_DATA}`: {
+    case `${GET_DATA}_FETCHING`: {
       return {
         ...state, data: [...state.data,...payload]
       }
