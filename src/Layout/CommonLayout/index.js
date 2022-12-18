@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {memo, useCallback, useMemo, useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import DashboardNavbar from "./DashboardNavbar";
@@ -16,49 +16,61 @@ const RootStyle = styled("div")({
 });
 
 const MainStyle = styled("div")(({ theme }) => ({
-  flexGrow: 1,
-  overflow: "auto",
-  minHeight: "100%",
-  // paddingTop: APP_BAR_MOBILE + 24,
-  paddingBottom: theme.spacing(10),
-  [theme.breakpoints.up("lg")]: {
-    // paddingTop: APP_BAR_DESKTOP + 24,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-  },
+    flexGrow: 1,
+    // overflowY: 'auto !important',
+    maxHeight: 'calc(100vh)',
+    paddingTop: APP_BAR_MOBILE,
+    // paddingBottom: theme.spacing(10),
+    width: `calc(100% - ${280 + 1}px)`,
+    [theme.breakpoints.up("lg")]: {
+        // paddingTop: APP_BAR_DESKTOP + 24,
+        // paddingLeft: theme.spacing(2),
+        // paddingRight: theme.spacing(2),
+    },
+}));
+
+const ChiledStyle = styled("div")(({ theme }) => ({
+    flexGrow: 1,
+    overflowY: 'auto !important',
+    maxHeight: 'calc(100vh - 64px)',
+    paddingBottom: theme.spacing(10),
 }));
 
 // ----------------------------------------------------------------------
 
-export default function CommonLayout({ navConfig : routes }) {
+function CommonLayout({ navConfig : routes }) {
   const [open, setOpen] = useState(false);
 
-    const switchRoutes = (routes) => {
-        return routes?.map((prop, key) => {
+    const switchRoutes = useCallback((routes) =>
+        { return routes?.map((prop, key) => {
             return (
                 <Route
-                exact
-                path={prop.path}
-                element={prop.component}
-                key={key}
-            />
+                    exact
+                    path={prop.path}
+                    element={prop.component}
+                    key={key}
+                />
             );
-        })
-    };
+        })}
+,[routes]);
+
 
   return (
-    <RootStyle>
+    <RootStyle className={'xyz'}>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar
         isOpenSidebar={open}
         onCloseSidebar={() => setOpen(false)}
       />
-        <MainStyle>
-            {/*<ReactComponent />*/}
+        <MainStyle className={'abcd'}>
+        <ChiledStyle id='scrollableDiv'>
             <Routes>
                 {switchRoutes(routes)}
             </Routes>
+        </ChiledStyle>
         </MainStyle>
     </RootStyle>
   );
 }
+
+export default memo(CommonLayout);

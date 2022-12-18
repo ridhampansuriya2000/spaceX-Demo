@@ -1,5 +1,5 @@
 {
-  "app_title": "بطل المرآب",
+  "app_title": "الفراغ",
   "language": "اللغة",
   "welcome_message": "اهلا بكم {{name}}",
   "Page_not_found": "الصفحة غير موجودة",
@@ -8,11 +8,6 @@
   "go_home": "اذهب للمنزل",
 
   "Dashboard": "Dashboard",
-  "Finance_Accounting": "Finance & Accounting",
-  "HR_Management": "HR Management",
-  "Operation_Management": "Operation management",
-  "Marketing_Communication": "Marketing & Communication",
-  "Business_Intelligence": "Business Intelligence",
   "Chat_With_Us": "Chat with us",
 
   "Log_Out": "Log Out"

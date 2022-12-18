@@ -3,26 +3,12 @@ import Iconify from 'components/Iconify';
 
 /*---------------------------Icons-------------------------------*/
 import DashboardIcon from "../../components/Icon/SideBar/DashboardIcon";
-import FinanceIcon from "../../components/Icon/SideBar/FinanceIcon";
-import HRMangagmentIcon from "../../components/Icon/SideBar/HRMangagmentIcon";
-import OperationManagementIcon from "../../components/Icon/SideBar/OperationManagementIcon";
-import MarketingCommunicationIcon from "../../components/Icon/SideBar/MarketingCommunicationIcon";
-import BusinessIntelligenceIcon from "../../components/Icon/SideBar/BusinessIntelligenceIcon";
 import ChatIcon from "../../components/Icon/SideBar/ChatIcon";
 import {lazy} from "react";
-import {useTranslation} from "react-i18next";
 
 // ----------------------------------------------------------------------
-const Dashboard = lazy(() => import("screen/Pages/Dashboard"));
-const FinanceAccounting = lazy(() => import("screen/Pages/FinanceAccounting"));
-const HRManagement = lazy(() => import("screen/Pages/HRManagement"));
-const OperationManagement = lazy(() => import("screen/Pages/OperationManagement"));
-const MarketingCommunication = lazy(() => import("screen/Pages/MarketingCommunication"));
-const BusinessIntelligence = lazy(() => import("screen/Pages/BusinessIntelligence"));
+const Dashboard = lazy(() => import("screen/Pages/Components/Dashboard"));
 const ChatWithUs = lazy(() => import("screen/Pages/ChatWithUs"));
-
-const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
-
 
 const navConfig = [
   {
@@ -32,39 +18,34 @@ const navConfig = [
     component: <Dashboard />,
   },
   {
-    title: "Finance_Accounting",
-    // title: "Finance_Accounting",
-    path: '/finance-accounting',
-    icon: <FinanceIcon/>,
-    component: <FinanceAccounting />,
+    title: "Dashboard 2",
+    path: '/dashboard2',
+    icon: <DashboardIcon/>,
+    component: <Dashboard />,
   },
   {
-    // title: 'HR Management',
-    title: "HR_Management",
-    path: '/hr-management',
-    icon: <HRMangagmentIcon/>,
-    component: <HRManagement />,
+    title: "Dashboard 3",
+    path: '/dashboard3',
+    icon: <DashboardIcon/>,
+    component: <Dashboard />,
   },
   {
-    // title: 'Operation management',
-    title: "Operation_Management",
-    path: '/operation-management',
-    icon: <OperationManagementIcon/>,
-    component: <OperationManagement />,
+    title: "Dashboard 4",
+    path: '/dashboard4',
+    icon: <DashboardIcon/>,
+    component: <Dashboard />,
   },
   {
-    // title: 'Marketing & Communication',
-    title: "Marketing_Communication",
-    path: '/marketing-communication',
-    icon: <MarketingCommunicationIcon/>,
-    component: <MarketingCommunication />,
+    title: "Dashboard 5",
+    path: '/dashboard5',
+    icon: <DashboardIcon/>,
+    component: <Dashboard />,
   },
   {
-    // title: 'Business Intelligence',
-    title: "Finance_Accounting",
-    path: '/business-intelligence',
-    icon: <BusinessIntelligenceIcon/>,
-    component: <BusinessIntelligence />,
+    title: "Dashboard 6",
+    path: '/dashboard6',
+    icon: <DashboardIcon/>,
+    component: <Dashboard />,
   },
   {
     // title: 'Chat with us',

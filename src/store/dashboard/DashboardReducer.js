@@ -10,7 +10,19 @@ const dashboardReducer = (state = JSON.parse(JSON.stringify(data)), {type, paylo
   switch (type) {
     case `${GET_DATA}_FETCHING`: {
       return {
+        ...state
+      }
+    }
+
+    case `${GET_DATA}_SUCCESS`: {
+      return {
         ...state, data: [...state.data,...payload]
+      }
+    }
+
+    case `${GET_DATA}_FAILED`: {
+      return {
+        ...state,
       }
     }
 

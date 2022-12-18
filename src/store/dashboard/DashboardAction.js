@@ -13,6 +13,7 @@ export const getDashboardData = data => ({
   isHttpAction: true,
   url: `/launches/?${data.apiParams}`,
   method: 'GET',
-  accessAndContentHeaders:false
+  accessAndContentHeaders:false,
   // body: data.payload,
+  callBackFun: data.callBackFun
 });

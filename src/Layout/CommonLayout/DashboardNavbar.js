@@ -5,7 +5,7 @@ import Iconify from "components/Iconify";
 import Searchbar from "./Searchbar";
 import AccountPopover from "./AccountPopover";
 import LanguagePopover from "components/LangSelector";
-import React from "react";
+import React, {memo} from "react";
 import {useTranslation} from "react-i18next";
 import ManageAccountIcon from "../../components/Icon/Navbar/ManageAccountIcon";
 import NotificationIcon from "../../components/Icon/Navbar/NotificationIcon";
@@ -14,7 +14,7 @@ import NotificationIcon from "../../components/Icon/Navbar/NotificationIcon";
 
 const DRAWER_WIDTH = 280;
 const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+const APPBAR_DESKTOP = 64;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
@@ -40,7 +40,7 @@ DashboardNavbar.propTypes = {
   onOpenSidebar: PropTypes.func,
 };
 
-export default function DashboardNavbar({ onOpenSidebar }) {
+function DashboardNavbar({ onOpenSidebar }) {
   const { t } = useTranslation();
 
 
@@ -93,3 +93,5 @@ export default function DashboardNavbar({ onOpenSidebar }) {
     </RootStyle>
   );
 }
+
+export default memo(DashboardNavbar);

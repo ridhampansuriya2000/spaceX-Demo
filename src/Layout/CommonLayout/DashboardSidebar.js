@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import {memo, useEffect} from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 // material
 import { styled } from "@mui/material/styles";
@@ -32,7 +32,7 @@ DashboardSidebar.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
-export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive("up", "lg");
@@ -146,3 +146,4 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     </RootStyle>
   );
 }
+export default memo(DashboardSidebar);

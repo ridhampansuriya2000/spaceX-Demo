@@ -21,10 +21,11 @@ const httpActions = (e) => next => async action => {
         type,
         body,
         accessAndContentHeaders=true,
+        callBackFun = async (data)=> await data
     } = action;
     const authKey = localStorage.getItem("token");
 
-    if (isHttpAction) {debugger
+    if (isHttpAction) {
 
         await next({
             type: `${LOADER_START}`,
@@ -61,18 +62,21 @@ const httpActions = (e) => next => async action => {
                 type: 'success',
                 render: data.message || `Success`, ...defaultToasterOptions
             });
+
+            let res = await callBackFun(data);
+
             await next({
                 type: API_RESPONSES,
-                payload: data,
+                payload: res,
                 actionType: `${type}_SUCCESS`,
             });
             await next({
                 type: `${type}_SUCCESS`,
-                payload: data,
+                payload: res,
             });
         } catch (e) {
             const {response} = e;
-            console.error('Error : got in httpsAction');
+            console.error('Error : got in httpsAction',e);
             if (toasterId) await toast.update(toasterId, {
                 type: 'error',
                 render: response?.data?.message || `Something going wrong !`,
